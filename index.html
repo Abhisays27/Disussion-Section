@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/60bdd6c8a9.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/icon?family=Google+Material+Icons&display=block"
+    rel="preload" as="style" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i&display=swap"
+    rel="preload" as="style" />
+  <link href="https://fonts.googleapis.com/icon?family=Google+Material+Icons&display=block"
+    rel="stylesheet" media="print" id="async-google-font-1" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i&display=swap"
+    rel="stylesheet" media="print" id="async-google-font-2"/>
+    <body>
+        <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get elements
+    const counterElement = document.querySelector('.counter');
+    const upvoteButton = document.querySelector('.upvote');
+    const downvoteButton = document.querySelector('.downvote');
+
+    // Initialize counter value
+    let counterValue = parseInt(counterElement.textContent); // Parse initial value from the counter element
+
+    // Update counter text
+    function updateCounter() {
+        counterElement.textContent = counterValue;
+    }
+
+    // Upvote function
+    function upvote() {
+        counterValue++;
+        updateCounter();
+    }
+
+    // Downvote function
+    function downvote() {
+        counterValue--;
+        updateCounter();
+    }
+
+    // Event listeners
+    upvoteButton.addEventListener('click', upvote);
+    downvoteButton.addEventListener('click', downvote);
+});
+
+
+// Pagination
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const totalPages = 20; // Total number of pages
+  let maxVisibleButtons = 10; // Maximum visible page buttons
+  let currentPage = 1;
+
+  const paginationContainer = document.querySelector(".pagination");
+  const pageNumbersContainer = document.querySelector(".pageNumbers");
+
+  function renderPageNumbers(currentPage) {
+    pageNumbersContainer.innerHTML = "";
+
+    const startPage = Math.max(1, currentPage - Math.floor(maxVisibleButtons / 2));
+    const endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
+
+    for (let i = startPage; i <= endPage; i++) {
+      const button = document.createElement("button");
+      button.textContent = i;
+      button.addEventListener("click", function () {
+        goToPage(i);
+      });
+      if (i === currentPage) {
+        button.classList.add("current");
+      }
+      pageNumbersContainer.appendChild(button);
+    }
+  }
+
+  function goToPage(page) {
+    currentPage = page;
+    renderPageNumbers(page);
+  }
+
+  function updateMaxVisibleButtons() {
+    maxVisibleButtons = window.innerWidth < 600 ? 6 : 10;
+    renderPageNumbers(currentPage);
+  }
+
+  renderPageNumbers(currentPage); // Initially render page numbers
+
+  document.getElementById("prevPage").addEventListener("click", function () {
+    if (currentPage > 1) {
+      goToPage(currentPage - 1);
+    }
+  });
+
+  document.getElementById("nextPage").addEventListener("click", function () {
+    if (currentPage < totalPages) {
+      goToPage(currentPage + 1);
+    }
+  });
+
+  window.addEventListener("resize", updateMaxVisibleButtons);
+});
+
+
+
+
+        </script>
+    <header>
+   
+      <div class="leftside">
+        <h1>Discussions</h1>
+        <p>
+          Discuss the Kaggle platform & machine learning topics – this includes
+          sharing feedback, asking questions, and more.
+        </p>
+      </div>
+      <div class="rightside">
+     
+        <img src="./Assests//header-light.svg" alt=""> 
+      </div>
+    </header>
+    <div class="forum-section">
+        <div class="forum-heading">
+            
+           <h6><i class="fa-regular fa-message"></i>Forums</h6>
+        </div>
+        <!-- forums-cards -->
+        
+        <div class="general-forum-cards">
+            <div class="forum-card-content">
+            <div class="icon-heading">
+            <div class="icon">
+                <img src="./Assests//kaggle-forum_light.svg" alt="">
+            </div>
+            <div class="frm-heading">
+                <h1>General</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, error!<br>
+                Last Post 10 minutes ago by Abhishek Nautiyal</p>
+                <p></p>
+            </div>
+        </div>
+        <div class="forum-people-icon-name">
+            <div class="people-icons">
+                <img src="./Assests//12063947-kg.jpg" alt="">
+                <img src="./Assests/769452-kg.jpg" alt="">
+                <img src="./Assests/9185728-kg.jpg" alt="">
+
+            </div>
+            <div class="people-names">
+                Recents Topics by abhishek Nautiyal,John Smith,Arman Ansari
+
+            </div>
+        </div>
+    </div>
+    <div class="forum-grey-divider"></div>
+        </div>
+
+        <div class="general-forum-cards">
+            <div class="forum-card-content">
+            <div class="icon-heading">
+            <div class="icon">
+                <img src="./Assests//kaggle-forum_light.svg" alt="">
+            </div>
+            <div class="frm-heading">
+                <h1>General</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, error!<br>
+                Last Post 10 minutes ago by Abhishek Nautiyal</p>
+                <p></p>
+            </div>
+        </div>
+        <div class="forum-people-icon-name">
+            <div class="people-icons">
+                <img src="./Assests//12063947-kg.jpg" alt="">
+                <img src="./Assests/769452-kg.jpg" alt="">
+                <img src="./Assests/9185728-kg.jpg" alt="">
+
+            </div>
+            <div class="people-names">
+                Recents Topics by abhishek Nautiyal,John Smith,Arman Ansari
+
+            </div>
+        </div>
+    </div>
+    <div class="forum-grey-divider"></div>
+        </div>
+        <div class="general-forum-cards">
+            <div class="forum-card-content">
+            <div class="icon-heading">
+            <div class="icon">
+                <img src="./Assests//kaggle-forum_light.svg" alt="">
+            </div>
+            <div class="frm-heading">
+                <h1>General</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, error!<br>
+                Last Post 10 minutes ago by Abhishek Nautiyal</p>
+                <p></p>
+            </div>
+        </div>
+        <div class="forum-people-icon-name">
+            <div class="people-icons">
+                <img src="./Assests//12063947-kg.jpg" alt="">
+                <img src="./Assests/769452-kg.jpg" alt="">
+                <img src="./Assests/9185728-kg.jpg" alt="">
+
+            </div>
+            <div class="people-names">
+                Recents Topics by abhishek Nautiyal,John Smith,Arman Ansari
+
+            </div>
+        </div>
+    </div>
+    <div class="forum-grey-divider"></div>
+        </div>
+        <div class="general-forum-cards">
+            <div class="forum-card-content">
+            <div class="icon-heading">
+            <div class="icon">
+                <img src="./Assests//kaggle-forum_light.svg" alt="">
+            </div>
+            <div class="frm-heading">
+                <h1>General</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, error!<br>
+                Last Post 10 minutes ago by Abhishek Nautiyal</p>
+                <p></p>
+            </div>
+        </div>
+        <div class="forum-people-icon-name">
+            <div class="people-icons">
+                <img src="./Assests//12063947-kg.jpg" alt="">
+                <img src="./Assests/769452-kg.jpg" alt="">
+                <img src="./Assests/9185728-kg.jpg" alt="">
+
+            </div>
+            <div class="people-names">
+                Recents Topics by abhishek Nautiyal,John Smith,Arman Ansari
+
+            </div>
+        </div>
+    </div>
+    <div class="forum-grey-divider"></div>
+        </div>
+        <div class="general-forum-cards">
+            <div class="forum-card-content">
+            <div class="icon-heading">
+            <div class="icon">
+                <img src="./Assests//kaggle-forum_light.svg" alt="">
+            </div>
+            <div class="frm-heading">
+                <h1>General</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, error!<br>
+                Last Post 10 minutes ago by Abhishek Nautiyal</p>
+                <p></p>
+            </div>
+        </div>
+        <div class="forum-people-icon-name">
+            <div class="people-icons">
+                <img src="./Assests//12063947-kg.jpg" alt="">
+                <img src="./Assests/769452-kg.jpg" alt="">
+                <img src="./Assests/9185728-kg.jpg" alt="">
+
+            </div>
+            <div class="people-names">
+                Recents Topics by abhishek Nautiyal,John Smith,Arman Ansari
+
+            </div>
+        </div>
+    </div>
+    <div class="forum-grey-divider"></div>
+        </div>
+        <div class="general-forum-cards">
+            <div class="forum-card-content">
+            <div class="icon-heading">
+            <div class="icon">
+                <img src="./Assests//kaggle-forum_light.svg" alt="">
+            </div>
+            <div class="frm-heading">
+                <h1>General</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, error!<br>
+                Last Post 10 minutes ago by Abhishek Nautiyal</p>
+                <p></p>
+            </div>
+        </div>
+        <div class="forum-people-icon-name">
+            <div class="people-icons">
+                <img src="./Assests//12063947-kg.jpg" alt="">
+                <img src="./Assests/769452-kg.jpg" alt="">
+                <img src="./Assests/9185728-kg.jpg" alt="">
+
+            </div>
+            <div class="people-names">
+                Recents Topics by abhishek Nautiyal,John Smith,Arman Ansari
+
+            </div>
+        </div>
+    </div>
+    <div class="forum-grey-divider"></div>
+        </div>
+
+    </div>
+
+    <div class="main-discussion">
+        <div class="forum-heading">
+            
+            <h6><i class="fa-solid fa-users"></i>Discussion from across Techsnap</h6>
+         </div>
+         <!-- Discussion cards page-1 -->
+         <div class="page-cards">
+         <div class="general-forum-cards">
+            <div class="forum-card-content">
+            <div class="icon-heading">
+            <div class="icon-discussion">
+                <img src="./Assests/2125251-kg.jpg" alt="">
+            </div>
+            <div class="frm-heading">
+                <h1>First Place at short solution Summary</h1>
+                <div class="disc-text-name">
+                    <a>Raj Biswas</a>
+                    <a>.in LLM- Detect AI genereted Text</a>
+                    <a>Last Comment 3m ago by Divyanshu32</a>
+                </div>
+               
+            </div>
+        </div>
+        <div class="forum-people-icon-name">
+            <div class="voting-button">
+                <button class="upvote">
+                  <i class="fas fa-arrow-up"></i>
+                </button>
+                <span class="counter">168</span>
+                <button class="downvote">
+                  <i class="fas fa-arrow-down"></i>
+                </button>
+              </div>
+            <div class="people-names">
+              20 comments...
+
+            </div>
+        </div>
+    </div>
+    <div class="forum-grey-divider" id="disc-divider"></div>
+        </div>
+        <div class="general-forum-cards">
+            <div class="forum-card-content">
+            <div class="icon-heading">
+            <div class="icon-discussion">
+                <img src="./Assests/2125251-kg.jpg" alt="">
+            </div>
+            <div class="frm-heading">
+                <h1>General</h1>
+                <div class="disc-text-name">
+                    <a>Raj Biswas</a>
+                    <a>.in LLM- Detect AI genereted Text</a>
+                    <a>Last Comment 3m ago by Divyanshu32</a>
+                </div>
+               
+            </div>
+        </div>
+        <div class="forum-people-icon-name">
+            <div class="voting-button">
+                <button class="upvote">
+                  <i class="fas fa-arrow-up"></i>
+                </button>
+                <span class="counter">168</span>
+                <button class="downvote">
+                  <i class="fas fa-arrow-down"></i>
+                </button>
+              </div>
+            <div class="people-names">
+              20 comments...
+
+            </div>
+        </div>
+    </div>
+    <div class="forum-grey-divider" id="disc-divider"></div>
+        </div>
+        <div class="general-forum-cards">
+            <div class="forum-card-content">
+            <div class="icon-heading">
+            <div class="icon-discussion">
+                <img src="./Assests/2125251-kg.jpg" alt="">
+            </div>
+            <div class="frm-heading">
+                <h1>General</h1>
+                <div class="disc-text-name">
+                    <a>Raj Biswas</a>
+                    <a>.in LLM- Detect AI genereted Text</a>
+                    <a>Last Comment 3m ago by Divyanshu32</a>
+                </div>
+               
+            </div>
+        </div>
+        <div class="forum-people-icon-name">
+            <div class="voting-button">
+                <button class="upvote">
+                  <i class="fas fa-arrow-up"></i>
+                </button>
+                <span class="counter">168</span>
+                <button class="downvote">
+                  <i class="fas fa-arrow-down"></i>
+                </button>
+              </div>
+            <div class="people-names">
+              20 comments...
+
+            </div>
+        </div>
+    </div>
+    <div class="forum-grey-divider" id="disc-divider"></div>
+        </div>
+        <div class="general-forum-cards">
+            <div class="forum-card-content">
+            <div class="icon-heading">
+            <div class="icon-discussion">
+                <img src="./Assests/2125251-kg.jpg" alt="">
+            </div>
+            <div class="frm-heading">
+                <h1>General</h1>
+                <div class="disc-text-name">
+                    <a>Raj Biswas</a>
+                    <a>.in LLM- Detect AI genereted Text</a>
+                    <a>Last Comment 3m ago by Divyanshu32</a>
+                </div>
+               
+            </div>
+        </div>
+        <div class="forum-people-icon-name">
+            <div class="voting-button">
+                <button class="upvote">
+                  <i class="fas fa-arrow-up"></i>
+                </button>
+                <span class="counter">168</span>
+                <button class="downvote">
+                  <i class="fas fa-arrow-down"></i>
+                </button>
+              </div>
+            <div class="people-names">
+              20 comments...
+
+            </div>
+        </div>
+    </div>
+    <div class="forum-grey-divider" id="disc-divider"></div>
+        </div>
+        <div class="general-forum-cards">
+            <div class="forum-card-content">
+            <div class="icon-heading">
+            <div class="icon-discussion">
+                <img src="./Assests/2125251-kg.jpg" alt="">
+            </div>
+            <div class="frm-heading">
+                <h1>General</h1>
+                <div class="disc-text-name">
+                    <a>Raj Biswas</a>
+                    <a>.in LLM- Detect AI genereted Text</a>
+                    <a>Last Comment 3m ago by Divyanshu32</a>
+                </div>
+               
+            </div>
+        </div>
+        <div class="forum-people-icon-name">
+            <div class="voting-button">
+                <button class="upvote">
+                  <i class="fas fa-arrow-up"></i>
+                </button>
+                <span class="counter">168</span>
+                <button class="downvote">
+                  <i class="fas fa-arrow-down"></i>
+                </button>
+              </div>
+            <div class="people-names">
+              20 comments...
+
+            </div>
+        </div>
+    </div>
+    <div class="forum-grey-divider" id="disc-divider"></div>
+        </div>
+        <div class="general-forum-cards">
+            <div class="forum-card-content">
+            <div class="icon-heading">
+            <div class="icon-discussion">
+                <img src="./Assests/2125251-kg.jpg" alt="">
+            </div>
+            <div class="frm-heading">
+                <h1>General</h1>
+                <div class="disc-text-name">
+                    <a>Raj Biswas</a>
+                    <a>.in LLM- Detect AI genereted Text</a>
+                    <a>Last Comment 3m ago by Divyanshu32</a>
+                </div>
+               
+            </div>
+        </div>
+        <div class="forum-people-icon-name">
+            <div class="voting-button">
+                <button class="upvote">
+                  <i class="fas fa-arrow-up"></i>
+                </button>
+                <span class="counter">168</span>
+                <button class="downvote">
+                  <i class="fas fa-arrow-down"></i>
+                </button>
+              </div>
+            <div class="people-names">
+              20 comments...
+
+            </div>
+        </div>
+    </div>
+    <div class="forum-grey-divider" id="disc-divider"></div>
+        </div>
+    </div>
+
+       
+     <!-- Pagination -->
+     <div class="pagination">
+        <button id="prevPage"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="pageNumbers"></div>
+        <button id="nextPage"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </body>
+</html>
